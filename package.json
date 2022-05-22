@@ -1,0 +1,46 @@
+{
+  "name": "@tsalliance/utilities",
+  "version": "1.9.0",
+  "description": "",
+  "author": "z3ttee",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "build:lib": "npm run prebuild && npm run format && nest build @tsalliance/utilities",
+    "package": "npm run build:lib && npm version minor --git-tag-version=false && npm publish --access=public",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
+    "start:dev": "nest start --watch"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/typeorm": "^9.0.0-next.2"
+  },
+  "dependencies": {
+    "typeorm": "^0.3.6"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@types/node": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "source-map-support": "^0.5.20",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "exports": {
+    ".": "./dist/alliance_utilities/index.js"
+  }
+}
